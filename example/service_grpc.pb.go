@@ -24,7 +24,7 @@ const _ = grpc.SupportPackageIsVersion7
 type GreeterClient interface {
 	// Sends a hello greeting with ROLE_OWNER permissions.
 	SayHello(ctx context.Context, in *HelloRequest, opts ...grpc.CallOption) (*HelloReply, error)
-	// Sends a bye greeting with ROLE_ADMIN permissions.
+	// Sends a bye greeting with ROLE_GUEST permissions.
 	SayBye(ctx context.Context, in *ByeRequest, opts ...grpc.CallOption) (*ByeReply, error)
 }
 
@@ -60,7 +60,7 @@ func (c *greeterClient) SayBye(ctx context.Context, in *ByeRequest, opts ...grpc
 type GreeterServer interface {
 	// Sends a hello greeting with ROLE_OWNER permissions.
 	SayHello(context.Context, *HelloRequest) (*HelloReply, error)
-	// Sends a bye greeting with ROLE_ADMIN permissions.
+	// Sends a bye greeting with ROLE_GUEST permissions.
 	SayBye(context.Context, *ByeRequest) (*ByeReply, error)
 	mustEmbedUnimplementedGreeterServer()
 }

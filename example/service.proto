@@ -11,10 +11,10 @@ service Greeter {
   // Sends a hello greeting with ROLE_OWNER permissions.
   rpc SayHello(HelloRequest) returns (HelloReply) {
     option (permissions.role)  = ROLE_OWNER;
-    option (permissions.scope) = "aaaaa";
+    option (permissions.scope) = "some.scope";
     option (permissions.test)  = 1234;
   }
-  // Sends a bye greeting with ROLE_ADMIN permissions.
+  // Sends a bye greeting with ROLE_GUEST permissions.
   rpc SayBye(ByeRequest) returns (ByeReply) {
     option (permissions.role) = ROLE_GUEST;
   }

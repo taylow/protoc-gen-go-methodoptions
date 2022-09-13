@@ -13,7 +13,7 @@ import (
 const (
 	Greeter_SayBye_Role    = permissions.Role_ROLE_GUEST
 	Greeter_SayHello_Role  = permissions.Role_ROLE_OWNER
-	Greeter_SayHello_Scope = "aaaaa"
+	Greeter_SayHello_Scope = "some.scope"
 	Greeter_SayHello_Test  = 1234
 )
 
