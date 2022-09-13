@@ -1,0 +1,40 @@
+syntax = "proto3";
+
+package helloworld;
+
+import "example/permissions/permissions.proto";
+
+option go_package = "github.com/taylow/protoc-gen-go-methodoptions/example;example";
+
+// The greeting service definition.
+service Greeter {
+  // Sends a hello greeting with ROLE_OWNER permissions.
+  rpc SayHello(HelloRequest) returns (HelloReply) {
+    option (permissions.role)  = ROLE_OWNER;
+    option (permissions.scope) = "aaaaa";
+    option (permissions.test)  = 1234;
+  }
+  // Sends a bye greeting with ROLE_ADMIN permissions.
+  rpc SayBye(ByeRequest) returns (ByeReply) {
+    option (permissions.role) = ROLE_GUEST;
+  }
+}
+
+// The request message containing the user's name.
+message HelloRequest {
+  string name = 1;
+}
+
+// The response message containing the greetings
+message HelloReply {
+  string message = 1;
+}
+
+message ByeRequest {
+  string name = 1;
+}
+
+// The response message containing the greetings
+message ByeReply {
+  string message = 1;
+}

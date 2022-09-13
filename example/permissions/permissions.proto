@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package permissions;
+
+import "google/protobuf/descriptor.proto";
+
+option go_package = "github.com/taylow/protoc-gen-go-methodoptions/example/permissions";
+
+enum Role {
+  ROLE_NONE   = 0;
+  ROLE_OWNER  = 1;
+  ROLE_ADMIN  = 2;
+  ROLE_MEMBER = 3;
+  ROLE_GUEST  = 4;
+}
+
+extend google.protobuf.MethodOptions {
+  Role   role  = 50000;
+  string scope = 50001;
+  int32  test  = 50002;
+}
